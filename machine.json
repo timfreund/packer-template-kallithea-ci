@@ -13,7 +13,7 @@
         {
             "type": "docker",
             "image": "ubuntu:{{user `version-number` }}",
-            "export_path": "output/kallithea-jenkins-docker.tar",
+            "export_path": "output/kallithea-ci-docker.tar",
             "run_command": ["run", "-d", "-i", "-t", "-privileged=true", "-v", "{{.Volumes}}", "{{.Image}}", "/bin/bash"]
         },
         {
@@ -22,7 +22,7 @@
             "iso_url": "{{user `iso` }}",
             "iso_checksum": "{{ user `checksum` }}",
             "iso_checksum_type": "md5",
-            "output_directory": "output/kallithea-jenkins-vbox",
+            "output_directory": "output/kallithea-ci-vbox",
             "http_directory": "httpdir",
             "http_port_min": 10082,
             "http_port_max": 10089,
@@ -48,7 +48,7 @@
             "iso_url": "{{user `iso` }}",
             "iso_checksum": "{{user `checksum` }}",
             "iso_checksum_type": "md5",
-            "output_directory": "output/kallithea-jenkins-kvm",
+            "output_directory": "output/kallithea-ci-kvm",
             "ssh_wait_timeout": "30s",
             "shutdown_command": "sudo shutdown -P now",
             "disk_size": 12000,
@@ -64,7 +64,7 @@
             "ssh_password": "{{user `password`}}",
             "ssh_port": 22,
             "ssh_wait_timeout": "90m",
-            "vm_name": "kallithea-jenkins",
+            "vm_name": "kallithea-ci",
             "net_device": "virtio-net",
             "disk_interface": "virtio",
             "boot_command":
